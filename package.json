@@ -1,0 +1,17 @@
+{
+  "name": "opencode-kit",
+  "version": "0.1.0",
+  "description": "Starter kit for opencode agents, skills, config, and project memory.",
+  "bin": {
+    "opencode-kit": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "opencode.json",
+    "agents/",
+    "instructions/",
+    "skills/",
+    "memory/"
+  ],
+  "license": "MIT"
+}
