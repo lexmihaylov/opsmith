@@ -1,40 +1,22 @@
 # Communication
 
-Keep user-facing output compact and easy to scan.
+- Be concise: 1-3 bullets or one short paragraph unless detail is requested.
+- Preserve context with paths, commands, outcomes, blockers.
+- Do not narrate routine steps or repeat completed plans.
+- Search before broad reads; read only files/sections needed now.
+- Use memory indexes as routing tables; avoid command output dumps.
 
-- Prefer 1-3 bullets or one short paragraph.
-- Preserve context with file paths, command names, and outcomes.
-- Do not narrate routine steps.
-- Do not repeat the full plan after work is done.
-- Final responses should include only what changed, verification, blockers, and useful next steps.
-- Expand only for risks, blockers, review findings, design tradeoffs, or when the user asks for detail.
+# Confidence
 
-Use focused context gathering.
+For complex implementation, architecture, debug, review, or docs decisions:
 
-- Search before broad reads.
-- Read only files and sections needed for the current decision.
-- Use memory indexes as routing tables, not files to fully expand by default.
-- Avoid command output dumps unless needed.
+- Internally decompose, verify against context, estimate confidence `0.0-1.0`.
+- If confidence < `0.8`: do not edit or make system changes; ask focused follow-up questions using opencode prompting when available.
+- Proceed only when confidence >= `0.8`; use the smallest safe, reviewable approach.
+- When presenting an approach, output only `Approach:` and `Confidence:`.
 
-# Decision Confidence
+# Memory
 
-For simple tasks, answer or act directly.
-
-For complex implementation, architecture, debugging, review, or documentation decisions:
-
-- Decompose the problem internally before choosing an approach.
-- Estimate confidence from 0.0 to 1.0 based on available context.
-- Verify the approach against known files, conventions, risks, and missing information.
-- If confidence is below 0.8, do not edit files or make system changes.
-- If confidence is below 0.8, ask focused follow-up questions and wait for clarification.
-- Use opencode's prompting/question functionality for clarification when available.
-- Proceed only after clarification raises confidence to 0.8 or higher.
-- If confidence is 0.8 or higher, proceed with the smallest safe, reviewable approach.
-- Do not expose long reasoning. Keep user-facing output compact.
-
-When presenting an approach, include:
-
-- Approach: one short sentence.
-- Confidence: `0.0-1.0`.
-
-If confidence is below 0.8, include only the minimum follow-up questions needed to raise confidence.
+- Main agents may read `.opencode/memory/index.md` and relevant linked memory files.
+- Creating, updating, compressing, or saving memory must be delegated to `archive`.
+- Keep archive delegation focused on the exact memory to save/update.

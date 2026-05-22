@@ -13,7 +13,7 @@ const entries = [
   { source: "agents", target: "agents" },
   { source: "instructions", target: "instructions" },
   { source: "skills", target: "skills" },
-  { source: "memory", target: "memory" },
+  { source: "memory", target: "memory", protectExisting: true },
 ]
 
 function copyEntry(entry) {
@@ -22,6 +22,11 @@ function copyEntry(entry) {
 
   if (!fs.existsSync(source)) {
     throw new Error(`Framework file is missing: ${entry.source}`)
+  }
+
+  if (entry.protectExisting && fs.existsSync(target)) {
+    console.log(`Skipped .opencode/${entry.target}; existing project memory is protected.`)
+    return
   }
 
   if (fs.existsSync(target) && !force) {

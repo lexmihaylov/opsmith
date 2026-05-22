@@ -26,13 +26,15 @@ Install from the full Git URL:
 npx git+https://github.com/lexmihaylov/opencode-kit.git
 ```
 
-If framework files already exist, the installer stops instead of overwriting them. Use `--force` only when you intentionally want to replace the existing framework files:
+If framework files already exist, the installer stops instead of overwriting them. Use `--force` only when you intentionally want to replace existing framework files:
 
 ```sh
 npx github:lexmihaylov/opencode-kit --force
 ```
 
 Restart opencode after installing so it reloads the config, agents, instructions, skills, and memory.
+
+Existing `.opencode/memory/` is protected. The installer copies starter memory only when `.opencode/memory/` does not exist; `--force` does not overwrite existing project memories or `memory/index.md`.
 
 ## Installed Files
 
@@ -44,7 +46,7 @@ The installer copies these files into `.opencode/`:
 - `.opencode/skills/`
 - `.opencode/memory/`
 
-The installer is intentionally conservative. It will not merge with existing files unless `--force` is used.
+The installer is intentionally conservative. It will not merge with existing files unless `--force` is used. Existing `.opencode/memory/` is always skipped to protect project memories.
 
 ## Framework Goals
 
@@ -175,6 +177,8 @@ The expected output is the likely root cause, supporting evidence, and the small
 
 Subagent for saving durable project knowledge into memory.
 
+All memory creation, updates, compression, and saving should be delegated to `archive`. Other agents may read memory for context, but should not write memory files directly.
+
 Use it when you want to:
 
 - Save a convention
@@ -220,6 +224,7 @@ Core rules:
 
 - Use `.opencode/memory/index.md` as a routing table.
 - Read only relevant memory files.
+- Delegate memory creation, updates, compression, and saving to `archive`.
 - Add memory only for durable, reusable project knowledge.
 - Keep each memory file focused on one concept.
 - Never store secrets, credentials, customer data, or temporary task details.
@@ -291,9 +296,13 @@ opencode merges global and agent permissions. Agent rules take precedence.
 
 ## Project Memory
 
-The framework installs `.opencode/memory/index.md` only. Specific memory files are created as development work uncovers durable project knowledge.
+The framework installs a minimal `.opencode/memory/index.md`. Specific memory files are created as development work uncovers durable project knowledge.
 
-Use `.opencode/memory/index.md` as the entry point. It should stay concise and link to focused memory files with names related to the exact topic they explain.
+Memory writes are handled by the `archive` subagent. Main agents should read memory when relevant and delegate memory-saving work to `archive` instead of editing `.opencode/memory/` directly.
+
+Use `.opencode/memory/index.md` as the entry point. It is a pure routing table and should contain only concise links to focused memory files.
+
+Memory rules and examples live in `skills/memory/SKILL.md` and `agents/archive.md`, not in `memory/index.md`. This keeps the always-loaded index small and project-specific.
 
 Example memory files:
 
@@ -323,10 +332,10 @@ For low-confidence or ambiguous work, clarify first. The framework intentionally
 
 After changing agents, instructions, skills, memory, or `opencode.json`, restart opencode. Running sessions keep using the previously loaded configuration.
 
-To reinstall into a project and replace existing framework files:
+To reinstall into a project and replace existing framework files except project memory:
 
 ```sh
 npx github:lexmihaylov/opencode-kit --force
 ```
 
-Use `--force` carefully. It replaces the installed framework files under `.opencode/`.
+Use `--force` carefully. It replaces installed framework files under `.opencode/`, but preserves existing `.opencode/memory/`.
