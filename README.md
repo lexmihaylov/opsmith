@@ -4,6 +4,10 @@ Starter framework for opencode projects. It installs a project-local `.opencode/
 
 The framework is designed for small, reviewable changes, compact communication, reusable project memory, and strong security defaults.
 
+## Mission
+
+`opencode-kit` exists to make AI-assisted development better and safer. It gives each project a lightweight, repeatable operating system for agentic software work so agents behave like careful project collaborators: gather only relevant context, make small safe changes, preserve durable knowledge, respect security boundaries, and produce work that is easy to review, verify, and maintain.
+
 ## Install
 
 Run from the root of the project where you want to install the framework.
@@ -215,6 +219,26 @@ Core rules:
 - Reuse existing helpers, services, modules, and patterns before adding new ones.
 - Avoid overengineered approaches and speculative abstractions.
 - Apply security conventions and best practices heavily.
+
+### `testing`
+
+Guides test selection, fixtures, mocks, regression coverage, and verification commands.
+
+### `security`
+
+Applies stricter handling for auth, authorization, validation, secrets, logging, errors, file/network access, dependencies, and data exposure.
+
+### `frontend`
+
+Guides UI, React, styling, accessibility, responsive layouts, forms, loading states, and client-side state.
+
+### `api`
+
+Guides API routes, handlers, clients, contracts, request/response shapes, auth boundaries, errors, and integrations.
+
+### `dependencies`
+
+Guides package, tool, framework, plugin, generated-code, and lockfile changes.
 
 ### `memory`
 
