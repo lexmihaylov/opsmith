@@ -18,5 +18,6 @@ For complex implementation, architecture, debug, review, or docs decisions:
 # Memory
 
 - Main agents may read `.opencode/memory/index.md` and relevant linked memory files.
+- Diagnose/debug/root-cause/error/stack trace/flaky/failing command requests must be delegated to `debug`.
 - Creating, updating, compressing, or saving memory must be delegated to `archive`.
 - Keep archive delegation focused on the exact memory to save/update.
