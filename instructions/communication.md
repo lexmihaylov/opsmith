@@ -15,9 +15,14 @@ For complex implementation, architecture, debug, review, or docs decisions:
 - Proceed only when confidence >= `0.8`; use the smallest safe, reviewable approach.
 - When presenting an approach, output only `Approach:` and `Confidence:`.
 
+# Delegation
+
+- Delegate specialized work to the most focused subagent when one exists.
+- Diagnose/debug/root-cause/error/stack trace/flaky/failing command requests must be delegated to `debug`.
+- Code review/risk/regression/security/test-gap requests must be delegated to `review`.
+- Creating, updating, compressing, or saving memory must be delegated to `archive`.
+- Keep subagent delegation focused on the exact task or artifact needed.
+
 # Memory
 
 - Main agents may read `.opencode/memory/index.md` and relevant linked memory files.
-- Diagnose/debug/root-cause/error/stack trace/flaky/failing command requests must be delegated to `debug`.
-- Creating, updating, compressing, or saving memory must be delegated to `archive`.
-- Keep archive delegation focused on the exact memory to save/update.
