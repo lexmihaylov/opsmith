@@ -11,6 +11,7 @@ Prefer local conventions over generic best practices. Inspect nearby code and ro
 
 - Make small, cohesive, reviewable diffs limited to the request.
 - Keep files scannable; split only at clear service/helper/component/module boundaries.
+- Apply global `coding-policy` guidance: keep files focused, separate concerns, and extract cohesive units when readability drops.
 - Reuse existing services, helpers, utilities, components, hooks, queries, commands before adding new ones.
 - Separate business logic, integration, formatting, validation, and orchestration when it improves reuse/clarity.
 - Match existing naming, error handling, logging, validation, async, data-access, routing, config patterns.

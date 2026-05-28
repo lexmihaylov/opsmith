@@ -74,6 +74,7 @@ It also loads shared instructions and the memory index:
 ```json
 "instructions": [
   ".opencode/instructions/communication.md",
+  ".opencode/instructions/coding-policy.md",
   ".opencode/memory/index.md"
 ]
 ```
@@ -215,6 +216,7 @@ Core rules:
 
 - Prefer small, reviewable changes.
 - Keep files small and easy to scan.
+- Apply the global coding policy: keep responsibilities focused and separate concerns before files become monolithic.
 - Separate functionality into services and helpers when it improves reuse or clarity.
 - Reuse existing helpers, services, modules, and patterns before adding new ones.
 - Avoid overengineered approaches and speculative abstractions.
@@ -255,9 +257,18 @@ Core rules:
 
 ## Shared Instructions
 
-`instructions/communication.md` applies globally through `opencode.json`.
+`instructions/communication.md` and `instructions/coding-policy.md` apply globally through `opencode.json`.
 
 It defines two important behaviors.
+
+### Coding Policy
+
+Global coding policy keeps codebases readable and maintainable:
+
+- Prefer small, focused files with a clear primary responsibility.
+- Separate presentation, orchestration, business logic, and integration/data-access concerns when practical.
+- Extract cohesive units before a module becomes hard to scan.
+- Prefer incremental refactoring and composition over growing monolithic files.
 
 ### Compact Communication
 
