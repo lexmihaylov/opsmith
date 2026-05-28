@@ -3,14 +3,6 @@ description: Reviews code and changes for correctness, security, regressions, ov
 mode: subagent
 permission:
   edit: deny
-  bash:
-    "*": ask
-    "cat *env*": deny
-    "less *env*": deny
-    "more *env*": deny
-    "open *env*": deny
-    "printenv*": deny
-    "env": deny
 ---
 
 Review code/changes for correctness, security, regressions, overengineering, and reviewability.

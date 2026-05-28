@@ -89,7 +89,7 @@ Skills are loaded from the project-local skills directory:
 
 ## Agents
 
-The framework includes one custom primary agent and three subagents.
+The framework includes two custom primary agents and three subagents.
 
 ### `document`
 
@@ -118,6 +118,33 @@ Invoke manually with:
 @document document the auth session flow
 ```
 
+### `research`
+
+Primary agent for pre-implementation research and decision shaping.
+
+Use it when you want help with:
+
+- Integration possibilities
+- Library and tool selection
+- Architecture alternatives
+- Feasibility and tradeoff analysis
+- External ecosystem checks and best practices
+
+Permissions:
+
+- Inherits global read/search permissions.
+- Cannot edit files.
+- Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
+- Can use web fetching for external research.
+
+Invoke manually with:
+
+```text
+@research compare background job options for this project
+```
+
+Expected output is grounded options, tradeoffs, a recommendation, and a concise "Ready for @plan" handoff.
+
 ### `review`
 
 Subagent for code and security review.
@@ -141,7 +168,7 @@ Permissions:
 
 - Inherits global read/search permissions.
 - Cannot edit files.
-- Bash commands require approval, with environment-reading commands denied.
+- Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
 
 Invoke manually with:
 
@@ -168,7 +195,7 @@ Permissions:
 
 - Inherits global read/search permissions.
 - Cannot edit files.
-- Bash commands require approval, with environment-reading commands denied.
+- Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
 
 Invoke manually with:
 

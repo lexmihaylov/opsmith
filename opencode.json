@@ -68,13 +68,34 @@
       "**/.secrets/**": "deny"
     },
     "bash": {
-      "*": "ask",
+      "*": "allow",
+      "rm *": "ask",
+      "rm -rf *": "ask",
+      "mv *": "ask",
+      "chmod *": "ask",
+      "chown *": "ask",
+      "git reset *": "ask",
+      "git clean *": "ask",
+      "git checkout -- *": "ask",
+      "git restore *": "ask",
+      "git rebase *": "ask",
+      "git push --force*": "ask",
+      "sudo *": "ask",
+      "sh -c *": "ask",
+      "bash -c *": "ask",
+      "zsh -c *": "ask",
       "cat *env*": "deny",
       "less *env*": "deny",
       "more *env*": "deny",
       "open *env*": "deny",
       "printenv*": "deny",
       "env": "deny"
+    },
+    "external_directory": {
+      "*": "allow",
+      "../*": "deny",
+      "/*": "deny",
+      "~/*": "deny"
     }
   }
 }

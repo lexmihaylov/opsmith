@@ -3,14 +3,6 @@ description: Diagnoses failures, stack traces, flaky behavior, and runtime bugs 
 mode: subagent
 permission:
   edit: deny
-  bash:
-    "*": ask
-    "cat *env*": deny
-    "less *env*": deny
-    "more *env*": deny
-    "open *env*": deny
-    "printenv*": deny
-    "env": deny
 ---
 
 Diagnose failures before implementation.
