@@ -3,7 +3,9 @@ description: Researches integration options, tools, and architecture directions 
 mode: primary
 permission:
   edit: deny
+  bash: deny
   webfetch: allow
+  websearch: allow
 ---
 
 Research solution directions before planning implementation.
