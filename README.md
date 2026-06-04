@@ -134,8 +134,10 @@ Permissions:
 
 - Inherits global read/search permissions.
 - Cannot edit files.
+- Can delegate only to read-only subagents (`explore`, `scout`).
 - Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
 - Can use web fetching for external research.
+- Verifies low-confidence claims with web search and source fetches before concluding.
 
 Invoke manually with:
 
