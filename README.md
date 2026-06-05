@@ -1,12 +1,18 @@
 # opencode-kit
 
-Starter framework for opencode projects. It installs a project-local `.opencode/` setup with focused agents, shared instructions, skills, and memory conventions.
+Starter framework for opencode projects. It installs a project-local `.opencode/` setup with focused agents, shared instructions, skills, and memory conventions for human-led AI-assisted engineering.
 
-The framework is designed for small, reviewable changes, compact communication, reusable project memory, and strong security defaults.
+The framework is designed for small, reviewable changes, compact communication, reusable project memory, strong security defaults, and engineer ownership of the final result.
 
 ## Mission
 
-`opencode-kit` exists to make AI-assisted development better and safer. It gives each project a lightweight, repeatable operating system for agentic software work so agents behave like careful project collaborators: gather only relevant context, make small safe changes, preserve durable knowledge, respect security boundaries, and produce work that is easy to review, verify, and maintain.
+`opencode-kit` exists to make AI-assisted engineering better and safer.
+
+The goal is not to replace the development process or move decision-making away from the engineer. The goal is to help engineers work faster with AI while keeping them firmly in charge of architecture, coding style, optimization, tradeoffs, and the full context of the codebase.
+
+In practice, this means the engineer defines the intent and constraints, the agent helps execute scoped work inside those boundaries, and the engineer reviews the output, corrects direction when needed, and accepts responsibility for what gets built.
+
+The framework acts like a lightweight operating system for human-led agentic work: gather only relevant context, make small safe changes, preserve durable knowledge, respect security boundaries, and produce work that is easy to review, verify, and maintain.
 
 ## Install
 
@@ -56,10 +62,12 @@ The installer is intentionally conservative. It will not merge with existing fil
 
 - Keep the built-in `build` agent as the default implementation agent.
 - Add only a small number of focused custom agents.
+- Keep the engineer in control of architecture, style, optimization, and final approval.
 - Prefer small, reviewable, secure changes over broad rewrites.
 - Keep communication compact and easy to scan.
 - Save durable project knowledge in compressed memory files.
 - Use global permissions for shared safety rules and per-agent permissions only for special restrictions.
+- Treat the agent as a collaborator that accelerates work, not as a replacement for engineering judgment.
 
 ## Configuration
 
@@ -389,6 +397,13 @@ Use custom agents when the task matches their narrow purpose:
 - `@review` for code and security review.
 - `@debug` for diagnosis before implementation.
 - `@archive` for compressed durable memory.
+
+The intended workflow is human-led:
+
+1. The engineer defines the goal, constraints, and success criteria.
+2. The agent helps break the work into smaller steps and executes scoped tasks.
+3. The engineer reviews the output, adjusts direction, and decides what should change next.
+4. The engineer remains responsible for the architecture, code quality, and final result.
 
 For low-confidence or ambiguous work, clarify first. The framework intentionally blocks edits when confidence is below `0.8`.
 
