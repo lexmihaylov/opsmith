@@ -1,6 +1,6 @@
 ---
 description: Researches integration options, tools, and architecture directions before implementation planning.
-mode: primary
+mode: all
 permission:
   edit: deny
   bash: deny

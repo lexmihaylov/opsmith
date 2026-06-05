@@ -1,6 +1,6 @@
 ---
 description: Documents features, implementation approaches, architecture, and project knowledge from code and memory.
-mode: primary
+mode: all
 permission:
   edit:
     "*": deny
