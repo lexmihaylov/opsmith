@@ -63,6 +63,7 @@ The installer is intentionally conservative. It will not merge with existing fil
 - Keep the built-in `build` agent as the default implementation agent.
 - Add only a small number of focused custom agents.
 - Keep the engineer in control of architecture, style, optimization, and final approval.
+- Prefer clean, simple, readable code with as little unnecessary branching or checking as possible.
 - Prefer small, reviewable, secure changes over broad rewrites.
 - Keep communication compact and easy to scan.
 - Save durable project knowledge in compressed memory files.

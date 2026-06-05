@@ -7,4 +7,6 @@
 - Prefer composition and helper/service extraction over growing monolithic modules.
 - Keep changes reviewable and maintainable; avoid broad rewrites when incremental refactoring can achieve the same result.
 - Reuse existing project patterns and boundaries before introducing new structures.
+- Prefer clean, simple, readable code over cleverness.
+- Avoid unnecessary checks, branches, and defensive complexity unless they solve a real problem.
 - Preserve existing behavior and contracts unless the task explicitly requires a change.
