@@ -56,12 +56,12 @@ npx opsmith --force
 
 Restart OpenCode or start a new Codex session after installing so the tool reloads instructions, skills, and memory.
 
-Existing `.opencode/memory/` is protected. The installer copies starter memory only when `.opencode/memory/` does not exist; `--force` does not overwrite existing project memories or `memory/index.md`.
+Existing `.opencode/memory/` is protected. The installer copies starter memory only when `.opencode/memory/` does not exist; `--force` does not overwrite existing project memories or `.opencode/memory/index.md`.
 Existing `.codex/memory/` is protected the same way for Codex installs.
 
 ## Installed Files
 
-The default OpenCode target copies these files into `.opencode/`:
+The OpenCode harness under `opencode/` copies these files into `.opencode/`:
 
 - `.opencode/opencode.json`
 - `.opencode/agents/`
@@ -72,6 +72,7 @@ The default OpenCode target copies these files into `.opencode/`:
 The Codex target copies these files:
 
 - `AGENTS.md`
+- `.codex/agents/`
 - `.codex/skills/`
 - `.codex/memory/`
 
@@ -91,7 +92,7 @@ The installer is intentionally conservative. It will not replace existing files 
 
 ## OpenCode Configuration
 
-`opencode.json` keeps the default agent as the built-in `build` agent:
+`opencode/opencode.json` keeps the default agent as the built-in `build` agent:
 
 ```json
 "default_agent": "build"
@@ -117,11 +118,11 @@ Skills are loaded from the project-local skills directory:
 
 ## Codex Configuration
 
-Codex support uses Codex-native project files instead of `opencode.json`:
+Codex support uses Codex-native project files in `codex/`:
 
 - `AGENTS.md` contains durable repo-wide instructions, communication policy, coding policy, delegation guidance, and memory routing.
 - `.codex/agents/` contains the mirrored primary agents and subagents.
-- `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `skills/`, and additional Codex workflow skills live under `codex/skills/`.
+- `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `opencode/skills/`, and additional Codex workflow skills live under `codex/skills/`.
 - `.codex/memory/index.md` is the memory routing table.
 
 Codex mirrors the OpenCode role files and preserves the same intent in project files; actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
@@ -325,7 +326,7 @@ Core rules:
 
 ## Shared Instructions
 
-`instructions/communication.md` and `instructions/coding-policy.md` apply globally through `opencode.json`.
+`opencode/instructions/communication.md` and `opencode/instructions/coding-policy.md` apply globally through `opencode/opencode.json`.
 
 It defines two important behaviors.
 
@@ -377,7 +378,7 @@ Confidence: <0.0-1.0>
 
 ## Permissions
 
-Shared permission rules live in `opencode.json`.
+Shared permission rules live in `opencode/opencode.json`.
 
 Global rules:
 
@@ -405,7 +406,7 @@ Memory writes are handled by the `archive` subagent. Main agents should read mem
 
 Use `.opencode/memory/index.md` as the entry point. It is a pure routing table and should contain only concise links to focused memory files.
 
-Memory rules and examples live in `skills/memory/SKILL.md` and `agents/archive.md`, not in `memory/index.md`. This keeps the always-loaded index small and project-specific.
+Memory rules and examples live in `opencode/skills/memory/SKILL.md` and `opencode/agents/archive.md`, not in `opencode/memory/index.md`. This keeps the always-loaded index small and project-specific.
 
 Example memory files:
 
@@ -442,7 +443,7 @@ For low-confidence or ambiguous work, clarify first. The framework intentionally
 
 ## Updating The Framework
 
-After changing agents, instructions, skills, memory, or `opencode.json`, restart OpenCode. After changing `AGENTS.md` or `.codex/skills/`, start a new Codex session. Running sessions keep using previously loaded configuration.
+After changing files under `opencode/`, restart OpenCode. After changing `AGENTS.md`, `.codex/agents/`, `.codex/skills/`, or `.codex/memory/`, start a new Codex session. Running sessions keep using previously loaded configuration.
 
 To reinstall into a project and replace existing framework files except project memory:
 

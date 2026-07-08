@@ -20,17 +20,17 @@ const opencodeRoot = path.join(targetRoot, ".opencode")
 const codexRoot = path.join(targetRoot, ".codex")
 
 const opencodeEntries = [
-  { source: "opencode.json", target: "opencode.json" },
-  { source: "agents", target: "agents" },
-  { source: "instructions", target: "instructions" },
-  { source: "skills", target: "skills" },
-  { source: "memory", target: "memory", protectExisting: true },
+  { source: "opencode/opencode.json", target: "opencode.json" },
+  { source: "opencode/agents", target: "agents" },
+  { source: "opencode/instructions", target: "instructions" },
+  { source: "opencode/skills", target: "skills" },
+  { source: "opencode/memory", target: "memory", protectExisting: true },
 ]
 
 const codexEntries = [
   { source: "codex/AGENTS.md", target: "AGENTS.md", root: targetRoot },
   { source: "codex/agents", target: "agents", merge: true },
-  { source: "skills", target: "skills" },
+  { source: "opencode/skills", target: "skills" },
   { source: "codex/skills", target: "skills", merge: true },
   { source: "codex/memory", target: "memory", protectExisting: true },
 ]
