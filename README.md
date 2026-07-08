@@ -125,7 +125,7 @@ Codex support uses Codex-native project files in `codex/`:
 - `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `opencode/skills/`, and additional Codex workflow skills live under `codex/skills/`.
 - `.codex/memory/index.md` is the memory routing table.
 
-Codex mirrors the OpenCode role files and preserves the same intent in project files; actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
+Codex mirrors the OpenCode role files and preserves the same intent in project files; [`codex/AGENTS.md`](/Users/aleksandar.mihaylov/Documents/Projects/opencode-kit/codex/AGENTS.md) now includes repo-wide safety rules that mirror the OpenCode permission policy, while actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
 
 ## Agents
 

@@ -4,6 +4,25 @@ Use this file as the durable project guidance for Codex.
 
 The mirrored agent roles live in `.codex/agents/`.
 
+## Global Safety Rules
+
+Use these repo-wide guardrails as the Codex equivalent of the OpenCode permission policy:
+
+- Read and search project files normally, but avoid opening known secret or credential files unless the task explicitly requires it.
+- Search is allowed for normal code and docs discovery; do not use broad, destructive, or out-of-scope filesystem access.
+- Edit only files that are relevant to the task and avoid changing secrets, credentials, generated artifacts, or branch-local data.
+- Treat shell commands as scoped work; avoid destructive commands, shell escapes, and environment-dumping commands unless the task explicitly requires them and the sandbox permits them.
+- Avoid accessing parent directories, absolute filesystem roots, or home-directory content outside the repository.
+- When a task needs elevated or destructive action, pause and request confirmation rather than assuming permission.
+
+These rules mirror the intent of `opencode/opencode.json`:
+
+- Project reads stay open.
+- Secret files and credentials stay blocked.
+- Normal edits are allowed only for task-relevant files.
+- Destructive shell commands require confirmation.
+- External directories outside the repo stay out of scope.
+
 ## Communication
 
 - Be concise: 1-3 bullets or one short paragraph unless detail is requested.
