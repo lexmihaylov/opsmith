@@ -3,24 +3,27 @@
 Use this file as the durable project guidance for Codex.
 
 The mirrored agent roles live in `.codex/agents/`.
+The machine-readable Codex policy mirror lives in `.codex/policy.json`.
 
 ## Global Safety Rules
 
-Use these repo-wide guardrails as the Codex equivalent of the OpenCode permission policy:
+Use these repo-wide guardrails as the Codex equivalent of the OpenCode permission policy.
+Treat `.codex/policy.json` as the structured source of truth for the same intent.
 
-- Read and search project files normally, but avoid opening known secret or credential files unless the task explicitly requires it.
-- Search is allowed for normal code and docs discovery; do not use broad, destructive, or out-of-scope filesystem access.
-- Edit only files that are relevant to the task and avoid changing secrets, credentials, generated artifacts, or branch-local data.
-- Treat shell commands as scoped work; avoid destructive commands, shell escapes, and environment-dumping commands unless the task explicitly requires them and the sandbox permits them.
-- Avoid accessing parent directories, absolute filesystem roots, or home-directory content outside the repository.
+- Read and search project files normally, but do not open or search secret and credential paths such as `.env*`, `*.pem`, `*.key`, `*.p12`, `*.pfx`, SSH key files, `.npmrc`, `.pypirc`, `.netrc`, `secrets/**`, or `.secrets/**`.
+- Edit only task-relevant project files and never edit secret or credential paths.
+- Treat shell commands as scoped work. Require confirmation before destructive commands such as `rm`, `rm -rf`, `mv`, `chmod`, `chown`, `git reset`, `git clean`, `git checkout --`, `git restore`, `git rebase`, `git push --force*`, `sudo`, `sh -c`, `bash -c`, or `zsh -c`.
+- Do not run environment-dumping or env-file-reading commands such as `env`, `printenv*`, `cat *env*`, `less *env*`, `more *env*`, or `open *env*`.
+- Avoid accessing parent directories, absolute filesystem roots, or home-directory content outside the repository unless the sandbox and task explicitly require it.
 - When a task needs elevated or destructive action, pause and request confirmation rather than assuming permission.
 
 These rules mirror the intent of `opencode/opencode.json`:
 
 - Project reads stay open.
-- Secret files and credentials stay blocked.
+- Secret files and credentials stay blocked for read, search, and edit.
 - Normal edits are allowed only for task-relevant files.
-- Destructive shell commands require confirmation.
+- Destructive shell commands and shell escapes require confirmation.
+- Environment-dumping and env-file-reading commands stay blocked.
 - External directories outside the repo stay out of scope.
 
 ## Communication
