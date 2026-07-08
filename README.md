@@ -1,12 +1,12 @@
-# opencode-kit
+# opsmith
 
-Starter framework for opencode projects. It installs a project-local `.opencode/` setup with focused agents, shared instructions, skills, and memory conventions for human-led AI-assisted engineering.
+Starter framework for OpenCode and Codex projects. It installs project-local agent guidance, skills, and memory conventions for human-led AI-assisted engineering.
 
 The framework is designed for small, reviewable changes, compact communication, reusable project memory, strong security defaults, and engineer ownership of the final result.
 
 ## Mission
 
-`opencode-kit` exists to make AI-assisted engineering better and safer.
+`opsmith` exists to make AI-assisted engineering better and safer.
 
 The goal is not to replace the development process or move decision-making away from the engineer. The goal is to help engineers work faster with AI while keeping them firmly in charge of architecture, coding style, optimization, tradeoffs, and the full context of the codebase.
 
@@ -18,37 +18,50 @@ The framework acts like a lightweight operating system for human-led agentic wor
 
 Run from the root of the project where you want to install the framework.
 
-Install from the GitHub repository:
+Install the default OpenCode setup:
 
 ```sh
-npx github:lexmihaylov/opencode-kit
+npx opsmith
+```
+
+Install Codex support instead:
+
+```sh
+npx opsmith -- --target codex
+```
+
+Install both OpenCode and Codex support:
+
+```sh
+npx opsmith -- --target both
 ```
 
 Install from a specific branch, tag, or commit:
 
 ```sh
-npx github:lexmihaylov/opencode-kit#<ref>
+npx github:lexmihaylov/opsmith#<ref>
 ```
 
 Install from the full Git URL:
 
 ```sh
-npx git+https://github.com/lexmihaylov/opencode-kit.git
+npx git+https://github.com/lexmihaylov/opsmith.git
 ```
 
 If framework files already exist, the installer stops instead of overwriting them. Use `--force` only when you intentionally want to replace existing framework files:
 
 ```sh
-npx github:lexmihaylov/opencode-kit --force
+npx opsmith --force
 ```
 
-Restart opencode after installing so it reloads the config, agents, instructions, skills, and memory.
+Restart OpenCode or start a new Codex session after installing so the tool reloads instructions, skills, and memory.
 
 Existing `.opencode/memory/` is protected. The installer copies starter memory only when `.opencode/memory/` does not exist; `--force` does not overwrite existing project memories or `memory/index.md`.
+Existing `.codex/memory/` is protected the same way for Codex installs.
 
 ## Installed Files
 
-The installer copies these files into `.opencode/`:
+The default OpenCode target copies these files into `.opencode/`:
 
 - `.opencode/opencode.json`
 - `.opencode/agents/`
@@ -56,7 +69,13 @@ The installer copies these files into `.opencode/`:
 - `.opencode/skills/`
 - `.opencode/memory/`
 
-The installer is intentionally conservative. It will not merge with existing files unless `--force` is used. Existing `.opencode/memory/` is always skipped to protect project memories.
+The Codex target copies these files:
+
+- `AGENTS.md`
+- `.codex/skills/`
+- `.codex/memory/`
+
+The installer is intentionally conservative. It will not replace existing files unless `--force` is used. Existing `.opencode/memory/` and `.codex/memory/` are always skipped to protect project memories.
 
 ## Framework Goals
 
@@ -67,10 +86,10 @@ The installer is intentionally conservative. It will not merge with existing fil
 - Prefer small, reviewable, secure changes over broad rewrites.
 - Keep communication compact and easy to scan.
 - Save durable project knowledge in compressed memory files.
-- Use global permissions for shared safety rules and per-agent permissions only for special restrictions.
+- Use OpenCode permissions for enforceable safety rules where available; use explicit Codex guidance for the same intent in Codex projects.
 - Treat the agent as a collaborator that accelerates work, not as a replacement for engineering judgment.
 
-## Configuration
+## OpenCode Configuration
 
 `opencode.json` keeps the default agent as the built-in `build` agent:
 
@@ -96,9 +115,19 @@ Skills are loaded from the project-local skills directory:
 }
 ```
 
+## Codex Configuration
+
+Codex support uses Codex-native project files instead of `opencode.json`:
+
+- `AGENTS.md` contains durable repo-wide instructions, communication policy, coding policy, delegation guidance, and memory routing.
+- `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `skills/`, and OpenCode agents are translated into Codex workflow skills.
+- `.codex/memory/index.md` is the memory routing table.
+
+OpenCode-specific permission blocks do not have a direct Codex equivalent in this kit. Codex templates preserve those constraints as explicit workflow guidance; actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
+
 ## Agents
 
-The framework includes two custom primary agents and three subagents.
+The OpenCode setup includes two custom primary agents and four focused subagents.
 
 ### `document`
 
@@ -390,14 +419,16 @@ Memory should capture durable knowledge that helps future agents work without re
 
 ## Recommended Workflow
 
-Use the built-in `build` agent for normal development work.
+Use the built-in OpenCode `build` agent or Codex's default coding flow for normal development work.
 
-Use custom agents when the task matches their narrow purpose:
+Use focused agents or workflow skills when the task matches their narrow purpose:
 
-- `@document` for docs in `docs/`.
-- `@review` for code and security review.
-- `@debug` for diagnosis before implementation.
-- `@archive` for compressed durable memory.
+- `document` for docs in `docs/`.
+- `review` for code and security review.
+- `debug` for diagnosis before implementation.
+- `archive` for compressed durable memory.
+- `research` for pre-implementation option research.
+- `design` for UX/UI and design-system guidance.
 
 The intended workflow is human-led:
 
@@ -410,12 +441,18 @@ For low-confidence or ambiguous work, clarify first. The framework intentionally
 
 ## Updating The Framework
 
-After changing agents, instructions, skills, memory, or `opencode.json`, restart opencode. Running sessions keep using the previously loaded configuration.
+After changing agents, instructions, skills, memory, or `opencode.json`, restart OpenCode. After changing `AGENTS.md` or `.codex/skills/`, start a new Codex session. Running sessions keep using previously loaded configuration.
 
 To reinstall into a project and replace existing framework files except project memory:
 
 ```sh
-npx github:lexmihaylov/opencode-kit --force
+npx opsmith --force
 ```
 
-Use `--force` carefully. It replaces installed framework files under `.opencode/`, but preserves existing `.opencode/memory/`.
+For Codex:
+
+```sh
+npx opsmith -- --target codex --force
+```
+
+Use `--force` carefully. It replaces installed framework files, but preserves existing `.opencode/memory/` and `.codex/memory/`.

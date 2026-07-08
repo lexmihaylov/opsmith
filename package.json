@@ -1,12 +1,13 @@
 {
-  "name": "opencode-kit",
+  "name": "opsmith",
   "version": "0.1.0",
-  "description": "Starter kit for opencode agents, skills, config, and project memory.",
+  "description": "Dual-framework kit for OpenCode and Codex project guidance, skills, and memory.",
   "bin": {
-    "opencode-kit": "bin/install.js"
+    "opsmith": "bin/install.js"
   },
   "files": [
     "bin/",
+    "codex/",
     "opencode.json",
     "agents/",
     "instructions/",
