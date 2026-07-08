@@ -93,9 +93,9 @@
     },
     "external_directory": {
       "*": "allow",
-      "../*": "deny",
-      "/*": "deny",
-      "~/*": "deny"
+      "../**": "deny",
+      "/**": "deny",
+      "~/**": "deny"
     }
   }
 }

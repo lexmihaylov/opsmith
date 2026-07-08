@@ -30,7 +30,7 @@ const opencodeEntries = [
 const codexEntries = [
   { source: "codex/AGENTS.md", target: "AGENTS.md", root: targetRoot },
   { source: "codex/policy.json", target: "policy.json" },
-  { source: "codex/skills", target: "skills", merge: true },
+  { source: "codex/skills", target: "skills" },
   { source: "codex/memory", target: "memory", protectExisting: true },
 ]
 
