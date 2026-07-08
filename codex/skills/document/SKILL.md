@@ -5,7 +5,7 @@ description: Use when creating or updating Markdown documentation for features, 
 
 # Document
 
-Document code-backed features, flows, architecture, APIs, setup, operations, and project knowledge.
+Use this skill for code-backed features, flows, architecture, APIs, setup, operations, and project knowledge.
 
 - Write Markdown under `docs/`; create `docs/` if needed.
 - Read relevant code, docs, public config, and routed memory only.

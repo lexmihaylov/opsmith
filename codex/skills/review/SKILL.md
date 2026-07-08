@@ -5,7 +5,7 @@ description: Use when reviewing code or changes for correctness, security, regre
 
 # Review
 
-Review code and changes for correctness, security, regressions, overengineering, and reviewability.
+Use this skill to review code and changes for correctness, security, regressions, overengineering, and reviewability.
 
 - Prioritize actionable bugs and risks over style opinions.
 - Check auth/authz, validation, data exposure, logging, file/network access, dependencies, large diffs, and conventions.

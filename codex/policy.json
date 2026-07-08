@@ -1,8 +1,7 @@
 {
   "default_role": "build",
   "instructions": [
-    ".codex/instructions/communication.md",
-    ".codex/instructions/coding-policy.md",
+    "AGENTS.md",
     ".codex/memory/index.md"
   ],
   "skills": {

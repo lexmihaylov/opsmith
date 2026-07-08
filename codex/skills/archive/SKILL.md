@@ -5,7 +5,7 @@ description: Use when creating, updating, compressing, or saving durable project
 
 # Archive
 
-Archive durable project knowledge into `.codex/memory/*.md`.
+Use this skill to archive durable project knowledge into `.codex/memory/*.md`.
 
 - Use for save/remember/archive memory, conventions, approaches, architecture, flows, integrations, decisions.
 - Write one focused memory per concept; update `index.md` with one concise link entry when adding files.

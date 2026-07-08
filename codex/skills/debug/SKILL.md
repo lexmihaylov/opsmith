@@ -5,7 +5,7 @@ description: Use when diagnosing failures, stack traces, flaky behavior, runtime
 
 # Debug
 
-Diagnose failures before implementation.
+Use this skill to diagnose failures before implementation.
 
 - Use for errors, stack traces, failed commands, bug reports, flakes, and root-cause questions.
 - Find the smallest reproducible cause from source, tests, logs, and public config; do not guess.

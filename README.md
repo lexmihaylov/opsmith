@@ -72,8 +72,6 @@ The OpenCode harness under `opencode/` copies these files into `.opencode/`:
 The Codex target copies these files:
 
 - `AGENTS.md`
-- `.codex/agents/`
-- `.codex/instructions/`
 - `.codex/policy.json`
 - `.codex/skills/`
 - `.codex/memory/`
@@ -123,21 +121,19 @@ Skills are loaded from the project-local skills directory:
 Codex support uses Codex-native project files in `codex/`:
 
 - `AGENTS.md` contains durable repo-wide instructions, communication policy, coding policy, delegation guidance, and memory routing.
-- `.codex/instructions/` mirrors the shared communication and coding-policy guidance from OpenCode.
 - `.codex/policy.json` mirrors the OpenCode permission categories and default role in a machine-readable Codex policy file.
-- `.codex/agents/` contains the mirrored primary agents and subagents.
 - `.codex/skills/` contains reusable task workflows, including the shared implementation skills and the Codex-specific workflow skills.
 - `.codex/memory/index.md` is the memory routing table.
 
 Codex now mirrors the full OpenCode harness structure inside `codex/` and preserves the same intent in project files; [`codex/AGENTS.md`](/Users/aleksandar.mihaylov/Documents/Projects/opencode-kit/codex/AGENTS.md) includes repo-wide safety rules that mirror the OpenCode permission policy, while actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
 
-## Agents
+## Skills
 
-The OpenCode setup includes two custom primary agents and four focused subagents.
+The Codex setup uses focused skills for the main workflows.
 
 ### `document`
 
-Primary agent for creating and updating Markdown documentation.
+Skill for creating and updating Markdown documentation.
 
 Use it when you want documentation for:
 
@@ -156,7 +152,7 @@ Permissions:
 - Can run only `mkdir docs` and `mkdir -p docs`.
 - Cannot edit source code, tests, config, scripts, package files, generated files, or memory files.
 
-Invoke manually with:
+Invoke with:
 
 ```text
 @document document the auth session flow
@@ -164,7 +160,7 @@ Invoke manually with:
 
 ### `research`
 
-Primary agent for pre-implementation research and decision shaping.
+Skill for pre-implementation research and decision shaping.
 
 Use it when you want help with:
 
@@ -183,7 +179,7 @@ Permissions:
 - Can use web fetching for external research.
 - Verifies low-confidence claims with web search and source fetches before concluding.
 
-Invoke manually with:
+Invoke with:
 
 ```text
 @research compare background job options for this project
@@ -193,7 +189,7 @@ Expected output is grounded options, tradeoffs, a recommendation, and a concise 
 
 ### `review`
 
-Subagent for code and security review.
+Skill for code and security review.
 
 Use it when you want a skeptical review for:
 
@@ -216,7 +212,7 @@ Permissions:
 - Cannot edit files.
 - Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
 
-Invoke manually with:
+Invoke with:
 
 ```text
 @review review the current changes
@@ -226,7 +222,7 @@ The main `build` agent may also use this subagent when a focused review pass is 
 
 ### `debug`
 
-Subagent for diagnosing failures before implementation.
+Skill for diagnosing failures before implementation.
 
 Use it when working with:
 
@@ -243,7 +239,7 @@ Permissions:
 - Cannot edit files.
 - Inherits global bash policy: normal commands are allowed; potentially destructive commands require approval; environment-reading commands are denied.
 
-Invoke manually with:
+Invoke with:
 
 ```text
 @debug diagnose this failing test output
@@ -253,7 +249,7 @@ The expected output is the likely root cause, supporting evidence, and the small
 
 ### `archive`
 
-Subagent for saving durable project knowledge into memory.
+Skill for saving durable project knowledge into memory.
 
 All memory creation, updates, compression, and saving should be delegated to `archive`. Other agents may read memory for context, but should not write memory files directly.
 
@@ -271,7 +267,7 @@ Permissions:
 - Can edit only `.opencode/memory/*.md`.
 - Cannot use bash.
 
-Invoke manually with:
+Invoke with:
 
 ```text
 @archive save this API error handling convention
@@ -447,7 +443,7 @@ For low-confidence or ambiguous work, clarify first. The framework intentionally
 
 ## Updating The Framework
 
-After changing files under `opencode/`, restart OpenCode. After changing `AGENTS.md`, `.codex/agents/`, `.codex/skills/`, or `.codex/memory/`, start a new Codex session. Running sessions keep using previously loaded configuration.
+After changing files under `opencode/`, restart OpenCode. After changing `AGENTS.md`, `.codex/skills/`, or `.codex/memory/`, start a new Codex session. Running sessions keep using previously loaded configuration.
 
 To reinstall into a project and replace existing framework files except project memory:
 

@@ -5,7 +5,7 @@ description: Use when researching integration options, tools, architecture direc
 
 # Research
 
-Research solution directions before implementation planning.
+Use this skill for solution directions before implementation planning.
 
 - Start with project context: inspect relevant code, docs, config, and memory before proposing anything.
 - Use current external sources whenever freshness, compatibility, licensing, maintenance, or risk affects the recommendation.
