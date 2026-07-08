@@ -3,7 +3,7 @@
 Use this file as the durable project guidance for Codex.
 
 The workflow guidance lives in `codex/skills/`.
-The machine-readable Codex policy mirror lives in `codex/policy.json`.
+The machine-readable Codex policy in `codex/policy.json`.
 
 ## Safety Rules
 
