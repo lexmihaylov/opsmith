@@ -8,7 +8,7 @@
   "files": [
     "bin/",
     "opencode/",
-    "codex/",
+    "codex/"
   ],
   "license": "MIT"
 }

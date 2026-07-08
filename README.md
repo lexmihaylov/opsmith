@@ -18,22 +18,22 @@ The framework acts like a lightweight operating system for human-led agentic wor
 
 Run from the root of the project where you want to install the framework.
 
-Install the default OpenCode setup:
+Install the default OpenCode setup from the GitHub repository:
 
 ```sh
-npx opsmith
+npx github:lexmihaylov/opsmith
 ```
 
 Install Codex support instead:
 
 ```sh
-npx opsmith -- --target codex
+npx github:lexmihaylov/opsmith -- --target codex
 ```
 
 Install both OpenCode and Codex support:
 
 ```sh
-npx opsmith -- --target both
+npx github:lexmihaylov/opsmith -- --target both
 ```
 
 Install from a specific branch, tag, or commit:
@@ -51,7 +51,7 @@ npx git+https://github.com/lexmihaylov/opsmith.git
 If framework files already exist, the installer stops instead of overwriting them. Use `--force` only when you intentionally want to replace existing framework files:
 
 ```sh
-npx opsmith --force
+npx github:lexmihaylov/opsmith --force
 ```
 
 Restart OpenCode or start a new Codex session after installing so the tool reloads instructions, skills, and memory.
@@ -452,13 +452,13 @@ After changing files under `opencode/`, restart OpenCode. After changing `AGENTS
 To reinstall into a project and replace existing framework files except project memory:
 
 ```sh
-npx opsmith --force
+npx github:lexmihaylov/opsmith --force
 ```
 
 For Codex:
 
 ```sh
-npx opsmith -- --target codex --force
+npx github:lexmihaylov/opsmith -- --target codex --force
 ```
 
 Use `--force` carefully. It replaces installed framework files, but preserves existing `.opencode/memory/` and `.codex/memory/`.
