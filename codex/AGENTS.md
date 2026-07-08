@@ -2,6 +2,8 @@
 
 Use this file as the durable project guidance for Codex.
 
+The mirrored agent roles live in `.codex/agents/`.
+
 ## Communication
 
 - Be concise: 1-3 bullets or one short paragraph unless detail is requested.
@@ -42,6 +44,10 @@ Use the most focused skill when one exists:
 - Use `archive` for creating, updating, compressing, or saving durable project memory.
 - Use `research` for pre-implementation external research and option comparison.
 - Use `design` for UX, visual design, design systems, and reusable UI guidance.
+
+## Agents
+
+Use `.codex/agents/` for focused role guidance that mirrors the OpenCode-style primary agents and subagents.
 
 ## Memory
 

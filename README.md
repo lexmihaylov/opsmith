@@ -120,10 +120,11 @@ Skills are loaded from the project-local skills directory:
 Codex support uses Codex-native project files instead of `opencode.json`:
 
 - `AGENTS.md` contains durable repo-wide instructions, communication policy, coding policy, delegation guidance, and memory routing.
-- `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `skills/`, and OpenCode agents are translated into Codex workflow skills.
+- `.codex/agents/` contains the mirrored primary agents and subagents.
+- `.codex/skills/` contains reusable task workflows. Shared implementation skills are copied from `skills/`, and additional Codex workflow skills live under `codex/skills/`.
 - `.codex/memory/index.md` is the memory routing table.
 
-OpenCode-specific permission blocks do not have a direct Codex equivalent in this kit. Codex templates preserve those constraints as explicit workflow guidance; actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
+Codex mirrors the OpenCode role files and preserves the same intent in project files; actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
 
 ## Agents
 

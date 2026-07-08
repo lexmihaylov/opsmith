@@ -29,6 +29,7 @@ const opencodeEntries = [
 
 const codexEntries = [
   { source: "codex/AGENTS.md", target: "AGENTS.md", root: targetRoot },
+  { source: "codex/agents", target: "agents", merge: true },
   { source: "skills", target: "skills" },
   { source: "codex/skills", target: "skills", merge: true },
   { source: "codex/memory", target: "memory", protectExisting: true },
@@ -69,7 +70,7 @@ function installCodex() {
   fs.mkdirSync(codexRoot, { recursive: true })
   for (const entry of codexEntries) copyEntry(codexRoot, entry)
   console.log("Installed opsmith Codex support into AGENTS.md and .codex/.")
-  console.log("Start a new Codex session so it reloads the new instructions, skills, and memory.")
+  console.log("Start a new Codex session so it reloads the new instructions, agents, skills, and memory.")
 }
 
 try {
