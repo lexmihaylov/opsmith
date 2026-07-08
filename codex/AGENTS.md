@@ -66,6 +66,7 @@ Use the most focused skill when one exists:
 - Use `archive` for creating, updating, compressing, or saving durable project memory.
 - Use `research` for pre-implementation external research and option comparison.
 - Use `design` for UX, visual design, design systems, and reusable UI guidance.
+- Use `orchestrate` for multi-step coordination, delegation, and parallel fan-out/fan-in when the task can be split safely.
 
 ## Memory
 

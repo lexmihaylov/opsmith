@@ -123,6 +123,7 @@ Codex support uses Codex-native project files in `codex/`:
 - `AGENTS.md` contains durable repo-wide instructions, communication policy, coding policy, delegation guidance, and memory routing.
 - `.codex/policy.json` mirrors the OpenCode permission categories and default role in a machine-readable Codex policy file.
 - `.codex/skills/` contains reusable task workflows, including the shared implementation skills and the Codex-specific workflow skills.
+- `.codex/skills/orchestrate/` contains the Codex orchestration workflow for explicit multi-step coordination.
 - `.codex/memory/index.md` is the memory routing table.
 
 Codex now mirrors the full OpenCode harness structure inside `codex/` and preserves the same intent in project files; [`codex/AGENTS.md`](/Users/aleksandar.mihaylov/Documents/Projects/opencode-kit/codex/AGENTS.md) includes repo-wide safety rules that mirror the OpenCode permission policy, while actual command and filesystem enforcement remains controlled by Codex configuration, sandboxing, and approval policy.
