@@ -19,6 +19,9 @@ Orchestration agent for OpenCode work.
 - Use `develop` for implementation and file changes.
 - Use `review` after implementation, then loop back through `debug`, `organize`, or `develop` if issues remain.
 - Allow any agent to interrupt the loop when it discovers a blocker, ambiguity, or defect.
+- Compose each handoff into the smallest useful payload: goal, relevant facts, constraints, files, and the exact next question.
+- Compress aggressively: drop narrative, repetition, and resolved details; keep only what the next agent needs.
+- Give each subagent the minimum context required to do its job well.
 - Decompose work into the smallest useful steps.
 - Run independent subtasks in parallel when they do not share writable state or ordering dependencies.
 - Keep the engineer in control of scope, tradeoffs, and final approval.

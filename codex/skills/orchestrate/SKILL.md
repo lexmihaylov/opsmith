@@ -9,6 +9,9 @@ Skill for coordinating multi-step Codex tasks and fan-out/fan-in execution.
 - Use `develop` for implementation and file changes.
 - Use `review` after implementation, then loop back through `debug`, `organize`, or `develop` if issues remain.
 - Allow any skill to interrupt the loop when it discovers a blocker, ambiguity, or defect.
+- Compose each handoff into the smallest useful payload: goal, relevant facts, constraints, files, and the exact next question.
+- Compress aggressively: drop narrative, repetition, and resolved details; keep only what the next skill needs.
+- Give each subskill the minimum context required to do its job well.
 - Break the task into the smallest independent subtasks.
 - Run independent subtasks in parallel when they do not share writable state or ordering dependencies.
 - Keep the engineer in control of scope, tradeoffs, and final approval.
