@@ -1,6 +1,8 @@
 ---
 description: Develops scoped code changes and file updates for approved implementation work.
 mode: subagent
+permission:
+  task: deny
 ---
 
 Develop implementation work for OpenCode tasks.

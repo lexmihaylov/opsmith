@@ -3,6 +3,7 @@ description: Reviews code and changes for correctness, security, regressions, ov
 mode: subagent
 permission:
   edit: deny
+  task: deny
 ---
 
 Review code/changes for correctness, security, regressions, overengineering, and reviewability.

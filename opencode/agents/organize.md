@@ -4,6 +4,7 @@ mode: subagent
 permission:
   edit: deny
   bash: deny
+  task: deny
 ---
 
 Organize work for OpenCode tasks.

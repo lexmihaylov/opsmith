@@ -4,6 +4,7 @@ mode: subagent
 permission:
   edit: deny
   bash: deny
+  task: deny
 ---
 
 You are a senior UX/UI designer and design systems thinker.

@@ -3,6 +3,7 @@ description: Diagnoses failures, stack traces, flaky behavior, and runtime bugs 
 mode: subagent
 permission:
   edit: deny
+  task: deny
 ---
 
 Diagnose failures before implementation.
