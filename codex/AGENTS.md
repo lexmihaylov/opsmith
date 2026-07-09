@@ -67,6 +67,9 @@ Use the most focused skill when one exists:
 - Use `research` for pre-implementation external research and option comparison.
 - Use `design` for UX, visual design, design systems, and reusable UI guidance.
 - Use `orchestrate` for multi-step coordination, delegation, and parallel fan-out/fan-in when the task can be split safely.
+- Within `orchestrate`, use `debug` first for issues, then `organize`, `develop`, and `review` in a loop as needed.
+- Use `organize` for high-confidence planning and replanning.
+- Use `develop` for scoped implementation and file updates.
 
 ## Memory
 
