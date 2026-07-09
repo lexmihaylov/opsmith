@@ -91,6 +91,8 @@
       "printenv*": "deny",
       "env": "deny"
     },
+    "task": "allow",
+    "question": "allow",
     "external_directory": {
       "*": "allow",
       "../**": "deny",
