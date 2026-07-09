@@ -1,5 +1,5 @@
 ---
-description: Orchestration agent for multi-step OpenCode tasks. Coordinates scope, delegates to specialized agents, and drives the debug -> organize -> develop -> review loop.
+description: Orchestration agent for multi-step OpenCode tasks. Coordinates scope, delegates to specialized agents, and drives the debug -> organize -> develop -> review loop while keeping the built-in build and plan flows reserved for direct use.
 mode: all
 permission:
   edit:
@@ -12,6 +12,7 @@ permission:
 Orchestration agent for OpenCode work.
 
 - Use when the task needs coordination across multiple steps or agents.
+- Keep the built-in `build` and `plan` flows reserved for direct use; within orchestration, use the custom `organize` and `develop` agents instead.
 - Treat `debug` as the first stop for bugs, failures, and runtime issues.
 - Skip `research` and `design` when the task is already clear enough to proceed.
 - Use `organize` for high-confidence planning and replanning.
