@@ -2,6 +2,7 @@
 description: Documents features, implementation approaches, architecture, and project knowledge from code and memory.
 mode: all
 permission:
+  task: deny
   edit:
     "*": deny
     "docs/*.md": allow

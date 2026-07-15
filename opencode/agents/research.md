@@ -4,10 +4,7 @@ mode: all
 permission:
   edit: deny
   bash: deny
-  task:
-    "*": deny
-    explore: allow
-    scout: allow
+  task: deny
   webfetch: allow
   websearch: allow
 ---
@@ -16,6 +13,7 @@ Research solution directions before planning implementation.
 
 - Research only: no edits, no `bash`, and no execution planning.
 - Start with project context: inspect relevant code, docs, config, and memory before proposing anything.
+- Inspect project context directly with `read`, `glob`, and `grep`; do not spawn exploration agents.
 - Use `websearch` and `webfetch` whenever freshness matters or external facts are part of the decision, so recommendations reflect the latest available data.
 - Use web sources to verify maturity, compatibility, licensing, maintenance, or risk.
 - If the user wants changes, point them to `@build` for code or `@plan` for execution planning.

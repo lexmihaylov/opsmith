@@ -2,6 +2,7 @@
 description: Archives durable project knowledge into compressed memory files for future agents.
 mode: subagent
 permission:
+  task: deny
   edit:
     "*": deny
     ".opencode/memory/*.md": allow
